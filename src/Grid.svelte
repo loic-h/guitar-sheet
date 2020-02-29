@@ -1,14 +1,14 @@
 <script>
 import Cell from './Cell.svelte';
 
-const pitches = ['e', 'a', 'd', 'g', 'b', 'e'];
+export let pitches;
 const start = 1;
 const end = 12
 const range = end - start + 1;
 </script>
 
 <div class="grid">
-  {#each ['e', 'a', 'd', 'g', 'b', 'e'] as pitch, stringIndex}
+  {#each pitches.reverse() as pitch, stringIndex}
     <div class="string">
       {#each Array(range) as _, cellIndex}
         <Cell inFirstString={stringIndex === 0}/>
@@ -27,6 +27,6 @@ const range = end - start + 1;
 
 .string {
   display: inline-flex;
-  border-bottom: var(--black) solid 2px;
+  border-bottom: var(--black) solid 1px;
 }
 </style>

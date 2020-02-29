@@ -21,7 +21,7 @@ export let on = true;
   position: relative;
   flex-grow: 1;
   padding-top: var(--cell-ratio);
-  border-left: var(--black) solid 3px;
+  border-left: var(--black) solid 2px;
 }
 
 .cell.in-first-string {
@@ -29,7 +29,7 @@ export let on = true;
 }
 
 .cell:last-child {
-  border-right: transparent solid 3px;
+  border-right: transparent solid 2px;
 }
 
 .cell:not(.in-first-string):last-child {
@@ -41,6 +41,7 @@ export let on = true;
   top: 50%;
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
 }

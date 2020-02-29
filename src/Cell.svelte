@@ -2,16 +2,17 @@
 import Note from "./Note.svelte";
 
 export let inFirstString = false;
-export let on = true;
+export let notes = [];
+export let noteType;
 </script>
 
 <div
   class="cell"
   class:in-first-string={inFirstString}
 >
-  {#if on}
+  {#if noteType}
     <div class="note">
-      <Note />
+      <Note type={noteType} />
     </div>
   {/if}
 </div>

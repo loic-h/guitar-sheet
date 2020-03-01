@@ -47,7 +47,7 @@ const getNoteType = notes => {
 };
 
 $: {
-	scaleNotes = getScaleNotes(root, scale.intervals);
+	scaleNotes = getScaleNotes(root, scale.progression);
 
 	for (let i = 0; i < pitches.length; i++) {
 		matrix[i] = [];

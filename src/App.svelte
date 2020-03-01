@@ -1,5 +1,5 @@
 <script>
-	import Scale from "./components/scale.svelte";
+	import Scale from "./components/Scale.svelte";
 </script>
 
 <main>

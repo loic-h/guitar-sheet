@@ -1,45 +1,25 @@
 <script>
 import Cell from './Cell.svelte';
+import { allNotes, marks } from '../stores/index.js';
 
 export let pitches;
 export let scale;
 export let root;
+export let start = 0;
+export let end = 15;
 
-const start = 0;
-const end = 15;
 const range = end - start + 1;
-const notes = [
-  ["a"],
-  ["a#", "bb"],
-  ["b", "cb"],
-  ["c", "b#"],
-  ["c#", "db"],
-  ["d"],
-  ["d#", "eb"],
-  ["e", "fb"],
-  ["f", "e#"],
-  ["f#", "gb"],
-  ["g"],
-  ["g#", "ab"]
-];
-const marks = [
-  { step: 3, type: "single" },
-  { step: 5, type: "single" },
-  { step: 7, type: "single" },
-  { step: 9, type: "single" },
-  { step: 12, type: "double" }
-];
 
 const getNotes = (stringIndex, cellIndex) => {
   const startIndexOnString = getNoteIndex(pitches[stringIndex]);
-  const noteIndex = (startIndexOnString + cellIndex) % notes.length;
-  return notes[noteIndex];
+  const noteIndex = (startIndexOnString + cellIndex) % $allNotes.length;
+  return $allNotes[noteIndex];
 }
 
 const getMark = index => {
-  const mark = marks.find(el => {
+  const mark = $marks.find(el => {
     return index + 1 === el.step
-      || (index > notes.length && (index + 1) % notes.length === el.step);
+      || (index > $allNotes.length && (index + 1) % $allNotes.length === el.step);
   });
   return mark ? ` ${mark.type}` : "";
 }
@@ -47,17 +27,17 @@ const getMark = index => {
 const getScaleNotes = (root, intervals) => {
   const rootIndex = getNoteIndex(root);
   let pointer = rootIndex;
-  return [notes[rootIndex]].concat(intervals.map(n => {
+  return [$allNotes[rootIndex]].concat(intervals.map(n => {
     pointer = pointer + n;
-    if (pointer >= notes.length) {
-      pointer = pointer % notes.length;
+    if (pointer >= $allNotes.length) {
+      pointer = pointer % $allNotes.length;
     }
-    return notes[pointer]
+    return $allNotes[pointer]
   }));
 };
 
 const getNoteIndex = note => {
-  return notes.findIndex((_, i) => notes[i].includes(note));
+  return $allNotes.findIndex((_, i) => $allNotes[i].includes(note));
 };
 
 const isInScale = (note, scaleNotes = scaleNotes) => {

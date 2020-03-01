@@ -1,3 +1,6 @@
 {
-  "standard": ["e", "a", "d", "g", "b", "e"]
+  "standard": {
+    "label": "Standard",
+    "pitches": ["e", "a", "d", "g", "b", "e"]
+  }
 }

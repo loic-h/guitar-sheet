@@ -2,19 +2,11 @@
 import Cell from './Cell.svelte';
 import { allNotes, marks } from '../stores/index.js';
 
-export let pitches;
-export let scale;
-export let root;
-export let start = 0;
-export let end = 15;
+export let matrix = [];
+export let startFret = 0;
+export let endFret = 0;
 
-const range = end - start + 1;
-
-const getNotes = (stringIndex, cellIndex) => {
-  const startIndexOnString = getNoteIndex(pitches[stringIndex]);
-  const noteIndex = (startIndexOnString + cellIndex) % $allNotes.length;
-  return $allNotes[noteIndex];
-}
+const range = endFret - startFret + 1;
 
 const getMark = index => {
   const mark = $marks.find(el => {
@@ -23,56 +15,16 @@ const getMark = index => {
   });
   return mark ? ` ${mark.type}` : "";
 }
-
-const getScaleNotes = (root, intervals) => {
-  const rootIndex = getNoteIndex(root);
-  let pointer = rootIndex;
-  return [$allNotes[rootIndex]].concat(intervals.map(n => {
-    pointer = pointer + n;
-    if (pointer >= $allNotes.length) {
-      pointer = pointer % $allNotes.length;
-    }
-    return $allNotes[pointer]
-  }));
-};
-
-const getNoteIndex = note => {
-  return $allNotes.findIndex((_, i) => $allNotes[i].includes(note));
-};
-
-const isInScale = (note, scaleNotes = scaleNotes) => {
-  return scaleNotes.find(a => a.includes(note));
-};
-
-const getNotesOnString = stringIndex => {
-  const notes = [];
-  for (let i = 1; i <= range; i++) {
-    notes.push(getNotes(stringIndex, i));
-  }
-  return notes;
-}
-
-const getNoteType = notes => {
-  if (notes.includes(root)) {
-    return "root";
-  }
-  if (scaleNotes.includes(notes)) {
-    return "default";
-  }
-};
-
-
-let scaleNotes = getScaleNotes(root, scale.intervals);
 </script>
 
 <div class="grid">
-  {#each pitches.reverse() as pitch, stringIndex}
+  {#each matrix.reverse() as pitch, stringIndex}
     <div class="string">
-      {#each getNotesOnString(stringIndex) as notes, cellIndex}
+      {#each pitch as item}
         <Cell
           inFirstString={stringIndex === 0}
-          notes={notes}
-          noteType={getNoteType(notes)} />
+          notes={item.notes}
+          noteType={item.type} />
       {/each}
     </div>
   {/each}

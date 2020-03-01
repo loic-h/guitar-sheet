@@ -1,9 +1,10 @@
 <script>
-	import Scale from "./components/Scale.svelte";
+import Router from 'svelte-spa-router'
+import routes from './routes.js'
 </script>
 
 <main>
-	<Scale />
+	<Router {routes}/>
 </main>
 
 <style>

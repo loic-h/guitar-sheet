@@ -17,14 +17,15 @@ const getMark = index => {
 }
 </script>
 
-<div class="grid">
+<div class="grid" class:nut={startFret === 1}>
   {#each matrix.reverse() as pitch, stringIndex}
     <div class="string">
       {#each pitch as item}
         <Cell
           inFirstString={stringIndex === 0}
           notes={item.notes}
-          noteType={item.type} />
+          noteType={item.type}
+          fretNumber={item.fretNumber} />
       {/each}
     </div>
   {/each}
@@ -57,6 +58,7 @@ const getMark = index => {
   position: relative;
   display: flex;
   flex-grow: 1;
+  flex-basis: 0;
   margin-top: 2rem;
   justify-content: center;
 }
@@ -72,5 +74,18 @@ const getMark = index => {
   height: 0;
   padding-top: var(--size);
   margin: 0 0.2rem;
+}
+
+.grid.nut .string:before,
+.grid.nut .frets:before {
+  content: '';
+  width: 3px;
+  margin-right: 3px;
+  background-color: var(--black);
+}
+
+.grid.nut .string:first-child:before,
+.grid.nut .frets:before {
+  background-color: transparent;
 }
 </style>

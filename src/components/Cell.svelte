@@ -4,6 +4,7 @@ import Note from "./Note.svelte";
 export let inFirstString = false;
 export let notes = [];
 export let noteType;
+export let fretNumber;
 </script>
 
 <div

@@ -57,9 +57,10 @@ $: {
 	for (let i = 0; i < pitches.length; i++) {
 		matrix[i] = [];
 		for (let j = 0; j < range; j++) {
-			const notes = getNotes(i, j + startFret);
-			const type = getNoteType(notes);
-			matrix[i][j] = { notes, type }
+      const fretNumber = startFret + j;
+			const notes = getNotes(i, fretNumber);
+      const type = getNoteType(notes);
+			matrix[i][j] = { notes, type, fretNumber }
 		}
 	}
 }

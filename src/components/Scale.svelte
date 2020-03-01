@@ -6,11 +6,12 @@ export let scaleKey = 'major';
 export let root = 'd';
 export let tuningKey = 'standard';
 
+$: scale = $scales[scaleKey];
+
 const startFret = 1;
 const endFret = 15;
 const tuning = $tunings[tuningKey];
 const pitches = tuning.pitches;
-const scale = $scales[scaleKey];
 const matrix = [];
 const range = endFret - startFret + 1;
 let scaleNotes;

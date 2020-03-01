@@ -10,5 +10,3 @@ export const tunings = readable(tuningsData);
 export const scales = readable(scalesData);
 
 export const tuning = writable('standard');
-export const scale = writable('major');
-export const root = writable('c');

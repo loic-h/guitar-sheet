@@ -4,5 +4,23 @@
     "progression": [
       2, 2, 1, 2, 2, 2
     ]
+  },
+  "minor": {
+    "label": "Minor",
+    "progression": [
+      2, 1, 2, 2, 1, 2
+    ]
+  },
+  "majorPenta": {
+    "label": "Major Pentatonic",
+    "progression": [
+      2, 2, 3, 2, 3
+    ]
+  },
+  "minorPenta": {
+    "label": "Minor Pentatonic",
+    "progression": [
+      3, 2, 2, 3, 2
+    ]
   }
 }

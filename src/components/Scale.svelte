@@ -2,8 +2,8 @@
 import { scales, tunings, allNotes } from '../stores/index.js';
 import Grid from './Grid.svelte';
 
-export let scaleKey = 'major';
-export let root = 'd';
+export let scaleKey;
+export let root;
 export let tuningKey = 'standard';
 
 $: scale = $scales[scaleKey];

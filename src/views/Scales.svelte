@@ -6,8 +6,8 @@ import { allNotes, scales } from '../stores/index.js';
 
 const queries = qs.parse($querystring);
 
-let root = queries.root || Object.keys($scales)[0];
-let scale = queries.scale || $allNotes[0][0];
+let root = queries.root || $allNotes[0][0];
+let scale = queries.scale || Object.keys($scales)[0];
 
 const selectableNotes = $allNotes.map(a => a[0]);
 

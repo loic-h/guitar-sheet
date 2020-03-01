@@ -1,6 +1,6 @@
 <script>
 import { scales, tunings, allNotes } from '../stores/index.js';
-import Grid from './grid.svelte';
+import Grid from './Grid.svelte';
 
 export let scaleKey = 'major';
 export let root = 'd';

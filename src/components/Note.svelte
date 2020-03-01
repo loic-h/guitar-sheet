@@ -1,8 +1,11 @@
 <script>
 export let type;
+export let notes;
+
+const title = notes.join("/");
 </script>
 
-<div class="note {type}" />
+<div class="note {type}" title={title}/>
 
 <style>
 .note {
@@ -11,13 +14,31 @@ export let type;
   width: var(--size);
   height: 0;
   padding-top: var(--size);
+  border-width: 1px;
+  border-style: solid;
 }
 
 .note.default {
-  background-color: var(--black);
+  --color: var(--black);
+  background-color: var(--color);
+  border-color: var(--color);
 }
 
 .note.root {
-  background-color: red;
+  --color: var(--red);
+  background-color: var(--color);
+  border-color: var(--color);
+}
+
+.note.blue {
+  --color: var(--blue);
+  background-color: var(--color);
+  border-color: var(--color);
+}
+
+.note.light {
+  --color: #666;
+  background-color: var(--color);
+  border-color: var(--color);
 }
 </style>

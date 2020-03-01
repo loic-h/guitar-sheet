@@ -22,5 +22,16 @@
     "progression": [
       3, 2, 2, 3, 2
     ]
+  },
+  "allMajor": {
+    "label": "Major (all)",
+    "progression": [
+      2, 1, 1, 1, 2, 2, 2
+    ],
+    "types": {
+      "2": "blue",
+      "4": "light",
+      "7": "light"
+    }
   }
 }

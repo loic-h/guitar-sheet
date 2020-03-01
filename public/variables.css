@@ -1,5 +1,8 @@
 :root {
-	--black: black;
+	--black: #222;
+	--blue: cornflowerblue;
+	--red: orangered;
+	--grey: slategrey;
 
 	--cell-ratio: 3%;
 }

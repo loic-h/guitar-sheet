@@ -12,7 +12,7 @@ export let noteType;
 >
   {#if noteType}
     <div class="note">
-      <Note type={noteType} />
+      <Note type={noteType} {notes} />
     </div>
   {/if}
 </div>

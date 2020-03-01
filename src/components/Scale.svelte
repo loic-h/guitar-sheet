@@ -43,6 +43,10 @@ const getNoteType = notes => {
     return "root";
   }
   if (scaleNotes.includes(notes)) {
+    const index = scaleNotes.indexOf(notes);
+    if (scale.types[index]) {
+      return scale.types[index];
+    }
     return "default";
   }
 };

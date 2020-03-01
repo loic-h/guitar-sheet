@@ -44,7 +44,7 @@ const getNoteType = notes => {
   }
   if (scaleNotes.includes(notes)) {
     const index = scaleNotes.indexOf(notes);
-    if (scale.types[index]) {
+    if (scale.types && scale.types[index]) {
       return scale.types[index];
     }
     return "default";

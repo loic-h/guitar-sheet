@@ -57,21 +57,20 @@ const getMark = index => {
   position: relative;
   display: flex;
   flex-grow: 1;
-  flex-direction: column;
   margin-top: 2rem;
-  align-items: center;
+  justify-content: center;
 }
 
 .single:before,
 .double:before,
 .double:after {
-  --size: 25%;
+  --size: 10%;
   content: '';
   border: solid 1px var(--black);
   border-radius: 50%;
   width: var(--size);
   height: 0;
   padding-top: var(--size);
-  margin-bottom: 0.5rem;
+  margin: 0 0.2rem;
 }
 </style>
